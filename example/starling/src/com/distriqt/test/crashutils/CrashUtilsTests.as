@@ -72,7 +72,7 @@ package com.distriqt.test.crashutils
 
 		public function getHistoricalProcessExitReasons():void
 		{
-			var reasons:Array = CrashUtils.service.getHistoricalProcessExitReasons();
+			var reasons:Array = CrashUtils.service.getHistoricalProcessExitReasons( 1 );
 			log( "Historical Process Exit Reasons: " + reasons.length );
 			for each (var reason:ApplicationExitInfo in reasons)
 			{
@@ -82,7 +82,15 @@ package com.distriqt.test.crashutils
 				log( "-------------------------" );
 			}
 		}
-		
+
+
+
+		public function appNotResponding():void
+		{
+			log( "App Not Responding" );
+			CrashUtils.service.appNotResponding( "App is wedged" );
+		}
+
 		
 	}
 }
